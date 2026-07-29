@@ -60,5 +60,5 @@ No additional Python packages or external services are required beyond a working
 Public GitHub repository:
 
 ```text
-Add the submitted repository URL here.
+https://github.com/m-alex-n/meter_reading_invoice
 ```
