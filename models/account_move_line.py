@@ -23,7 +23,9 @@ class AccountMoveLine(models.Model):
     @api.depends("new_reading", "previous_reading")
     def _compute_actual_reading(self):
         for line in self:
+            # Consumption is the difference between the current and prior readings.
             line.actual_reading = line.new_reading - line.previous_reading
+            # Odoo invoices from quantity, so the line quantity follows consumption.
             line.quantity = line.actual_reading
 
     @api.depends("product_id", "move_id.partner_id")

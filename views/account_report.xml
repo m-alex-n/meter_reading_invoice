@@ -2,6 +2,7 @@
 <odoo>
 
     <template id="report_invoice_document_meter_reading" inherit_id="account.report_invoice_document">
+        <!-- Add meter reading headers before the standard Quantity column. -->
         <xpath expr="//th[@name='th_quantity']" position="before">
             <th name="th_previous_reading" class="text-end">
                 <span>Previous Reading</span>
@@ -14,6 +15,7 @@
             </th>
         </xpath>
 
+        <!-- Print each invoice line's stored meter reading values. -->
         <xpath expr="//td[@name='td_quantity']" position="before">
             <td name="td_previous_reading" class="text-end">
                 <span t-field="line.previous_reading" class="text-nowrap">0.00</span>
